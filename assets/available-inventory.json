@@ -1,0 +1,57 @@
+[
+  {
+    "brandId": "Under Armour",
+    "category": "Apparel",
+    "clientSkuId": "190496015203",
+    "color": "Black",
+    "imageUrl": "./assets/puma.jpg",
+    "mrp": 1999,
+    "name": "Puma",
+    "size": "XS",
+    "styleId": "1297125-002"
+  },
+  {
+    "brandId": "Under Armour2",
+    "category": "Apparel",
+    "clientSkuId": "190496015203",
+    "color": "Black",
+    "imageUrl": "./assets/red-trail.jpg",
+    "mrp": 1999,
+    "name": "Red-Trail",
+    "size": "XS",
+    "styleId": "1297125-002"
+  },
+  {
+    "brandId": "Under Armour3",
+    "category": "Apparel",
+    "clientSkuId": "190496015203",
+    "color": "Black",
+    "imageUrl": "./assets/mm.jpg",
+    "mrp": 1999,
+    "name": "Baseball",
+    "size": "XS",
+    "styleId": "1297125-002"
+  },
+  {
+    "brandId": "Under Armour",
+    "category": "Apparel",
+    "clientSkuId": "190496015203",
+    "color": "Black",
+    "imageUrl": "./assets/jaguar.jpg",
+    "mrp": 1999,
+    "name": "Jaguar",
+    "size": "XS",
+    "styleId": "1297125-002"
+  },
+  {
+    "brandId": "Under Armour",
+    "category": "Apparel",
+    "clientSkuId": "190496015203",
+    "color": "Black",
+    "imageUrl": "./assets/honda.jpg",
+    "mrp": 1999,
+    "name": "Honda",
+    "size": "XS",
+    "styleId": "1297125-002"
+  }
+]

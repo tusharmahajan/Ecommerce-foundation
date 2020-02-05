@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>E-Commerce UI Demo</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="-1" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <link rel="icon" href="https://storage.googleapis.com/www.increff.com/img/favicon.png?v=2" type="image/x-icon" />
+  <link rel="stylesheet"
+    href="https://storage.googleapis.com/static.increff.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid ">
+      <div class="navbar-header">
+        <a class="pull-left mr-4" href="#"><img src="./assets/logo.jpg"></a>
+      </div>
+      <a class="navbar-brand" href="/">E-Commerce</a>
+
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item mr-2">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav navbar-expand">
+        <li class="nav-item mr-4">
+          <a class="nav-link" href="cartpage.html">
+            <i class="material-icons">shopping_cart</i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="material-icons">exit_to_app</i> </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid bg-light">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-8 offset-xl-2">
+        <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <a href="#product1">
+                <img class="img-fluid" src="./assets/puma.jpg" alt="First slide">
+              </a>
+            </div>
+            <div class="carousel-item">
+              <a href="#product2">
+                <img class="img-fluid" src="./assets/red-trail.jpg" alt="Second slide">
+              </a>
+            </div>
+            <div class="carousel-item">
+              <a href="#product3">
+                <img class="img-fluid" src="./assets/mm.jpg" alt="Third slide">
+              </a>
+            </div>
+            <div class="carousel-item">
+              <a href="#product4">
+                <img class="img-fluid" src="./assets/jaguar.jpg" alt="Fourth slide">
+              </a>
+            </div>
+            <div class="carousel-item">
+              <a href="#product5">
+                <img class="img-fluid" src="./assets/honda.jpg" alt="Fifth slide">
+              </a>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- PRODUCT DETAILS -->
+    <div class="col-12 text-center">
+      <h2 class="font-weight-light mt-3 text-dark">Available Products</h2>
+
+
+      <div id="button-div" class="col-12">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div id="product" class="card mx-auto" style="width: 18rem;">
+                  <img id="product-img" class="card-img-top" alt="product Image">
+                  <div class="card-body text-center">
+                    <h5 class="card-title"></h5>
+                    <div>
+                      <label class="font-weight-bold"> Name:</label><span id='product-name'></span><br />
+                      <label class="font-weight-bold"> Category:</label><span id='product-category'></span><br />
+                      <label class="font-weight-bold"> Size:</label><span id='product-size'></span><br />
+                      <label class="font-weight-bold"> Color:</label><span id='product-color'></span><br />
+                      <label class="font-weight-bold"> MRP:</label><span id='product-mrp'></span>
+                    </div>
+                    <p class="card-text"></p>
+                    <button type="button" id="add-cart" class="btn btn-info d-inline-flex"><i class="material-icons">
+                        shopping_cart</i>Add to Cart</button>
+                  </div>
+                  <div class="row">
+                    <div class="col-2 ml-4">
+                      <button type="button" id="reduce-cart" class="btn btn-info" data-toggle="tooltip"
+                        title="Reduce Quantity">-</button>
+                    </div>
+                    <div class="col-6 mb-5">
+                      <input type="text" id="cart-value" class="form-control text-center" maxlength="3">
+                    </div>
+                    <div class="col-2 mr-2">
+                      <button type="button" id= "increase-cart" class="btn btn-info" data-toggle="tooltip"
+                        title="Increase Quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <nav class="mt-5 ml-auto" aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav> -->
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="mb-5"></div>
+    <footer class="fixed-bottom text-center" id="footer-id"></footer>
+
+    <script src="https://storage.googleapis.com/static.increff.com/jquery/3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="https://storage.googleapis.com/static.increff.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
