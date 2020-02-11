@@ -1,0 +1,28 @@
+[
+  {
+    "email": "t@gmail.com",
+    "password": "198838314",
+    "type": "user"
+  },
+  {
+    "email": "r@gmail.com",
+    "password": "211338134",
+    "type": "admin"
+  },
+
+  {
+    "email": "t@gmail.com",
+    "password": "211338134",
+    "type": "user"
+  },
+  {
+    "email": "xyz@gmail.com",
+    "password": "263565573", 
+    "type": "admin"
+  },
+  {
+    "email": "xyz@gmail.com",
+    "password": "7887419",
+    "type": "admin"
+  }
+]

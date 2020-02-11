@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8" />
@@ -12,10 +13,39 @@
 		href="https://storage.googleapis.com/static.increff.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- <script>
+		if (localStorage.getItem('credentials') == null) {
+			window.location.href = "/index.html";
+		}
+	</script> -->
 </head>
 
 <body>
-	<div class="container-fluid">
+	<nav class="navbar navbar-dark bg-dark">
+		<div class="container-fluid ">
+			<div class="navbar-header">
+				<a class="pull-left mr-4" href="products.html"><img src="./assets/logo.jpg"></a>
+			</div>
+			<a class="navbar-brand" href="#">E-Commerce</a>
+
+			<ul class="navbar-nav mr-auto navbar-expand">
+				<li class="nav-item mr-2">
+					<a class="nav-link" href="products.html">Home</a>
+				</li>
+				<li class="nav-item mr-2">
+					<a class="nav-link" href="inventory.html">Admin</a>
+				</li>
+			</ul>
+
+			<ul class="navbar-nav navbar-expand">
+				<li class="nav-item ml-2">
+					<a class="nav-link" href="index.html">
+						<i class="material-icons">exit_to_app</i> </a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
 		<h1>Cart</h1>
 		<div class="row">
 			<table class="table table-striped table-hover" id="checkout-table">
@@ -32,7 +62,7 @@
 				</tbody>
 			</table>
 			<div class="col-sm-12 col-md-12">
-				<button type="button" class="btn btn-primary" id="create-order">Create Order</button>
+				<button type="button" class="btn btn-primary show-toast">Create Order</button>
 			</div>
 		</div>
 		<!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
@@ -50,10 +80,22 @@
 		</div> -->
 	</div>
 
-	<footer id="footer-id">
-	</footer>
+	<div id="myToast" class="toast mx-auto" data-autohide="false">
+		<div class="toast-header">
+			<strong class="mr-auto">Mr X.</strong>
+			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+		</div>
+		<div class="toast-body bg-light">
+			Order created successfully!
+		</div>
+	</div>
 
+	<footer class="fixed-bottom text-center" id="footer-id">Copyright Increff @2020</footer>
 	<script src="https://storage.googleapis.com/static.increff.com/jquery/3.3.1/jquery-3.3.1.min.js"></script>
 	<script src="https://storage.googleapis.com/static.increff.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-	<script src="checkout.js"></script>
+	<script src="./static/cart.js"></script>
+
 </body>
+
+
+</html>

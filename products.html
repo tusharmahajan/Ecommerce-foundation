@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>E-Commerce UI Demo</title>
+  <title>Increff E commerce</title>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,37 +14,48 @@
     href="https://storage.googleapis.com/static.increff.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" type="text/css" href="style.css">
-
+  <!-- <script>
+      if(localStorage.getItem('credentials') == null) {
+        window.location.href = "/index.html";
+      }
+  </script> -->
 </head>
 
-<body>
+<body class="d-none">
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid ">
       <div class="navbar-header">
         <a class="pull-left mr-4" href="#"><img src="./assets/logo.jpg"></a>
       </div>
-      <a class="navbar-brand" href="/">E-Commerce</a>
+      <a class="navbar-brand" href="#">E-Commerce</a>
 
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto navbar-expand">
         <li class="nav-item mr-2">
           <a class="nav-link" href="#">Home</a>
         </li>
+        <div id="admin" class="d-none">
+          <li class="nav-item mr-2">
+            <a class="nav-link" href="./inventory.html">Admin</a>
+          </li>
+        </div>
       </ul>
 
       <ul class="navbar-nav navbar-expand">
         <li class="nav-item mr-4">
           <a class="nav-link" href="cartpage.html">
-            <i class="material-icons">shopping_cart</i>
+            <i class="material-icons"> shopping_cart</i>
+            <span class="badge badge-danger badge-pill align-top">
+            </span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">
+        <li class="nav-item ml-2">
+          <a id="log-out" class="nav-link" href="index.html">
             <i class="material-icons">exit_to_app</i> </a>
         </li>
       </ul>
     </div>
   </nav>
-  <div class="container-fluid bg-light">
+  <div class="container bg-light">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-8 offset-xl-2">
         <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
@@ -101,10 +112,17 @@
       <div id="button-div" class="col-12">
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
           aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-dialog modal-dialog-centered" style="width: 18rem;" role="document">
             <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Product Details</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">&times;</span>
+
+                </button>
+              </div>
               <div class="modal-body">
-                <div id="product" class="card mx-auto" style="width: 18rem;">
+                <div id="product" class="card mx-auto">
                   <img id="product-img" class="card-img-top" alt="product Image">
                   <div class="card-body text-center">
                     <h5 class="card-title"></h5>
@@ -120,15 +138,15 @@
                         shopping_cart</i>Add to Cart</button>
                   </div>
                   <div class="row">
-                    <div class="col-2 ml-4">
+                    <div class="col-2 ml-2">
                       <button type="button" id="reduce-cart" class="btn btn-info" data-toggle="tooltip"
                         title="Reduce Quantity">-</button>
                     </div>
-                    <div class="col-6 mb-5">
+                    <div class="col-6 ml-3 mb-5">
                       <input type="text" id="cart-value" class="form-control text-center" maxlength="3">
                     </div>
-                    <div class="col-2 mr-2">
-                      <button type="button" id= "increase-cart" class="btn btn-info" data-toggle="tooltip"
+                    <div class="col-2 mr-3">
+                      <button type="button" id="increase-cart" class="btn btn-info" data-toggle="tooltip"
                         title="Increase Quantity">+</button>
                     </div>
                   </div>
@@ -147,13 +165,16 @@
         </div>
       </div>
     </div>
+    <div id="login-snackbar" style="display: none;">
+    </div>
   </div>
-    <div class="mb-5"></div>
-    <footer class="fixed-bottom text-center" id="footer-id"></footer>
+  <div class="mb-5"></div>
+  <footer class="fixed-bottom text-center" id="footer-id">Copyright Increff @2020</footer>
 
-    <script src="https://storage.googleapis.com/static.increff.com/jquery/3.3.1/jquery-3.3.1.min.js"></script>
-    <script src="https://storage.googleapis.com/static.increff.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script src="app.js"></script>
+  <script src="https://storage.googleapis.com/static.increff.com/jquery/3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="https://storage.googleapis.com/static.increff.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <script src="./static/app.js"></script>
+
 
 </body>
 
