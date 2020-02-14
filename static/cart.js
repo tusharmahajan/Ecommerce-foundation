@@ -1,5 +1,6 @@
-var items = {};
-var order = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : {};
+let items = {};
+let order = localStorage.getItem('order') ? JSON.parse(localStorage.getItem('order')) : {};
+let role = JSON.parse(localStorage.getItem('credentials'));
 
 function checkproduct() {
     currUser = Object.keys(JSON.parse(localStorage.getItem('credentials')))[0];
@@ -14,13 +15,13 @@ function checkproduct() {
     //     alert("First create Order");
     // }
     // console.log(Object.keys(items[currUser])!=0);
-    var $tbody = $('#checkout-table').find('tbody');
+    let $tbody = $('#checkout-table').find('tbody');
     $tbody.empty();
     temp = 0;
     for (i in items[currUser]) {
         if (items[currUser][i] != 0) {
             let buttonHtml = ' <button class="btn btn-primary" onclick="removeproduct(\'' + i + '\')">remove</button>'
-            var row = '<tr>'
+            let row = '<tr>'
                 + '<td>' + i + '</td>'
                 + '<td>' + items[currUser][i] + '</td>'
                 + '<td>' + 1999 + '</td>'
@@ -34,6 +35,7 @@ function checkproduct() {
 
     if (Object.keys(items[currUser]).length != 0) {
         $('body').on('click', '.show-toast', (function () {
+            $("#myToast").removeClass('d-none');
             $('#myToast').toast('show');
             createOrder();
             inventoryUpdate();
@@ -48,7 +50,7 @@ function checkproduct() {
 function removeproduct(id) {
     // console.log(items[currUser][id]);
     delete (items[currUser][id]);
-    // console.log((items[currUser]));
+
     localStorage.setItem('cart', JSON.stringify(items));
     checkproduct();
 }
@@ -75,5 +77,15 @@ function inventoryUpdate() {
     }
     availableQuantity = localStorage.setItem('availableQuantity', JSON.stringify(availableQuantity));
 }
+$('#log-out').click(function(){
+    localStorage.removeItem('credentials');
+});
 
-$(document).ready(checkproduct);
+function init(){
+    if (Object.values(role)[0] == 'admin') {
+        $("#admin").removeClass("d-none");
+    }
+    checkproduct();
+}
+
+$(document).ready(init);

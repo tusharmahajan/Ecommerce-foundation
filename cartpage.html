@@ -11,20 +11,17 @@
 	<link rel="icon" href="https://storage.googleapis.com/www.increff.com/img/favicon.png?v=2" type="image/x-icon" />
 	<link rel="stylesheet"
 		href="https://storage.googleapis.com/static.increff.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="https://storage.googleapis.com/static.increff.com/fonts/increff-fonts/increff-icons/1.0.0/css/style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<!-- <script>
-		if (localStorage.getItem('credentials') == null) {
-			window.location.href = "/index.html";
-		}
-	</script> -->
 </head>
 
 <body>
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid ">
 			<div class="navbar-header">
-				<a class="pull-left mr-4" href="products.html"><img src="./assets/logo.jpg"></a>
+				<span class="pull-left mr-4 increff-client-icons increff-image text-light h2"></span>
 			</div>
 			<a class="navbar-brand" href="#">E-Commerce</a>
 
@@ -32,14 +29,16 @@
 				<li class="nav-item mr-2">
 					<a class="nav-link" href="products.html">Home</a>
 				</li>
-				<li class="nav-item mr-2">
-					<a class="nav-link" href="inventory.html">Admin</a>
-				</li>
+				<div id="admin" class="d-none">
+					<li class="nav-item mr-2">
+						<a class="nav-link" href="inventory.html">Admin</a>
+					</li>
+				</div>
 			</ul>
 
 			<ul class="navbar-nav navbar-expand">
 				<li class="nav-item ml-2">
-					<a class="nav-link" href="index.html">
+					<a id="log-out" data-toggle="tooltip" title="log out" class="nav-link" href="/index.html">
 						<i class="material-icons">exit_to_app</i> </a>
 				</li>
 			</ul>
@@ -62,35 +61,23 @@
 				</tbody>
 			</table>
 			<div class="col-sm-12 col-md-12">
-				<button type="button" class="btn btn-primary show-toast">Create Order</button>
+				<button type="button" class="btn btn-primary show-toast" data-toggle="tooltip" data-placement="top"
+					title="Create Order">Create Order</button>
 			</div>
 		</div>
-		<!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-			<div class="toast-header">
-				<img src="..." class="rounded mr-2" alt="...">
-				<strong class="mr-auto">Bootstrap</strong>
-				<small class="text-muted">11 mins ago</small>
-				<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="toast-body">
-				Hello, world! This is a toast message.
-			</div>
-		</div> -->
 	</div>
 
-	<div id="myToast" class="toast mx-auto" data-autohide="false">
+	<div id="myToast" class="toast position-fixed d-none" style="top:20px; right:20px;" data-autohide="false">
 		<div class="toast-header">
 			<strong class="mr-auto">Mr X.</strong>
 			<button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
 		</div>
-		<div class="toast-body bg-light">
+		<div class="toast-body bg-success">
 			Order created successfully!
 		</div>
 	</div>
 
-	<footer class="fixed-bottom text-center" id="footer-id">Copyright Increff @2020</footer>
+	<footer id="footer-id" class="fixed-bottom text-center" >Copyright Increff @2020</footer>
 	<script src="https://storage.googleapis.com/static.increff.com/jquery/3.3.1/jquery-3.3.1.min.js"></script>
 	<script src="https://storage.googleapis.com/static.increff.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 	<script src="./static/cart.js"></script>

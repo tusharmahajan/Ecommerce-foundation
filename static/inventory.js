@@ -22,17 +22,21 @@ function getInventory() {
 
   $('.download-csv').on('click', function () {
 
-  let csv = Papa.unparse(final_array);
+    let csv = Papa.unparse(final_array);
 
-  let csvData = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    let csvData = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
 
-  let csvURL = window.URL.createObjectURL(csvData);
-  let tempLink = document.createElement('a');
-  tempLink.href = csvURL;
-  tempLink.setAttribute('download', 'download.csv');
-  tempLink.click();
-});
+    let csvURL = window.URL.createObjectURL(csvData);
+    let tempLink = document.createElement('a');
+    tempLink.href = csvURL;
+    tempLink.setAttribute('download', 'download.csv');
+    tempLink.click();
+  });
 
 }
+
+$('#log-out').click(function(){
+  localStorage.removeItem('credentials');
+});
 
 $(document).ready(getInventory);

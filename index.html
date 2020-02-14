@@ -12,7 +12,8 @@
   <link rel="stylesheet"
     href="https://storage.googleapis.com/static.increff.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-
+  <link rel="stylesheet"
+    href="https://storage.googleapis.com/static.increff.com/fonts/increff-fonts/increff-icons/1.0.0/css/style.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>Increff E commerce</title>
 </head>
@@ -25,7 +26,12 @@
           <div class="col-sm-8 mx-auto mt-5">
             <div class="modal-content">
               <form class="col-12" id="login-form">
-                <img class="mt-3" src="./assets/logo.jpg">
+                <!-- <img class="mt-3" src="./assets/logo.jpg"> -->
+                <div class="d-flex mt-3  align-items-center justify-content-center text-dark">
+                  <i class="h1 mr-3 align-self-center increff-client-icons">increff-logo</i>
+                  <i class="h4 increff-client-icons">increff-text</i>
+                </div>
+                <hr class="border border-secondary mb-4">
                 <h1 class="h3 my-3 font-weight-normal">Login</h1>
                 <div class="form-group">
                   <input type="email" class="form-control" name="ename" placeholder="Enter email" required
@@ -34,10 +40,6 @@
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" name="pname" placeholder="Password" required>
-                </div>
-                <div class="form-check mb-3">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Remember Me</label>
                 </div>
                 <button type="submit" id="check-email" class="btn btn-primary mb-3">Login</button>
               </form>
