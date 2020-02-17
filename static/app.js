@@ -106,7 +106,7 @@ function displayProductDetails(data) {
         let myCol = $('<div/>', { "class": "col-sm-6 col-md-4 col-lg-3 pb-4" });
 
         let product = $('<div class="card"><img class="card-img-top"' +
-            ' src="' + data[i].imageUrl + '" alt="Card image cap" style="height:150px;">  <div class="card-body">' +
+            ' src="' + data[i].imageUrl + '" alt="Card image cap" style="height:200px;">  <div class="card-body">' +
             '<h5 class="card-title">' + data[i].name + '</h5> <div>' +
             '<label class="font-weight-bold"> Name:</label><span>' + data[i].name + '</span><br />' +
             '<label class="font-weight-bold"> Category:</label><span>' + data[i].category + '</span><br />' +
