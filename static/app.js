@@ -113,7 +113,7 @@ function displayProductDetails(data) {
             '<label class="font-weight-bold"> Size:</label><span>' + data[i].size + '</span><br />' +
             '<label class="font-weight-bold"> Color:</label><span>' + data[i].color + '</span><br />' +
             '<label class="font-weight-bold"> MRP:</label><span>' + data[i].mrp + '</span>' +
-            '</div> <button type="button" class="add-cart btn btn-info d-inline-flex mb-2" onclick="addToCart(\'' + data[i].name + '\')"><i class="material-icons">' +
+            '</div> <button type="button" id= "'+ data[i].name+'1'+'" class="add-cart disabled btn btn-info d-inline-flex mb-2" onclick="addToCart(\'' + data[i].name + '\')"><i class="material-icons">' +
             'shopping_cart</i>Add to Cart</button> <div class="row"> <div class="col-2 ">' +
             '<button type="button" class="reduce-cart btn btn-info" onclick="subtract(\'' + data[i].name + '\')" data-toggle="tooltip"' +
             'title="Reduce Quantity">-</button></div><div class="col-6 mb-5">' +
@@ -150,7 +150,7 @@ function displayProductDetails(data) {
 
 let hash = function (s) {
 
-    var a = 1, c = 0, h, o;
+    let a = 1, c = 0, h, o;
     if (s) {
         a = 0;
         for (h = s.length - 1; h >= 0; h--) {
@@ -164,29 +164,41 @@ let hash = function (s) {
 };
 
 function add(name1) {
-    if (availableQuantity[name1] < 0) {
-        alert("quantity not available");
+
+
+    if (availableQuantity[name1] <= 0) {
+        // alert("quantity not available");
+        // console.log("sdfa"); 
+        $('#quantityToast').removeClass('d-none');
+
+        $('.toast-body').html(" Quantity not available" );
+        $('.toast').toast('show');
+
         return false;
     }
 
     let newCount = Number($('#' + name1).val()) + 1;
     $('#' + name1).val(newCount);
+    if(newCount > 0){
+        $('#'+name1 + '1').removeClass('disabled');
+    }
 }
 
 function subtract(name1) {
     let newCount = Number($('#' + name1).val()) - 1;
     if (newCount < 0) return;
     $('#' + name1).val(newCount);
+    if(newCount==0){
+        $('#' + name1+'1').attr('disabled',true);
+    }
 }
 
 function addToCart(name1) {
     currUser = Object.keys(JSON.parse(localStorage.getItem('credentials')))[0];
-    // console.log($('#' + name1).val() + " "+ availableQuantity[name1] );
     if ($('#' + name1).val() > availableQuantity[name1]) {
         $('#quantityToast').removeClass('d-none');
         $('.toast-body').html("Maximum quantity available is : " + availableQuantity[name1]);
         $('.toast').toast('show');
-        // alert("Maximum quantity available is :" + availableQuantity[name1]);
         $('#max-snackbar').empty();
         $('#max-snackbar').show(100, function () {
             setTimeout(() => {
@@ -205,13 +217,17 @@ function addToCart(name1) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
+    $('#'+name1).val(0);
     total();
 }
 function total() {
     totalQty = 0;
-    products = localStorage.getItem('cart') ? Object.values(JSON.parse(localStorage.getItem('cart'))) : 0;
-    for (i in products[0]) {
-        totalQty += Number(products[0][i]);
+    products = localStorage.getItem('cart') ?JSON.parse(localStorage.getItem('cart')) : 0;
+
+    user = Object.keys(role)[0];
+
+    for (i in products[user]) {
+        totalQty += Number(products[user][i]);
     }
     $('.badge').html(totalQty);
 }
