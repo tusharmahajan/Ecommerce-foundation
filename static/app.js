@@ -1,9 +1,9 @@
 /*Global variable
 */
-let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : {};
-let availableQuantity = localStorage.getItem('availableQuantity') ? JSON.parse(localStorage.getItem('availableQuantity')) : {};
-let credentials = {};
-let role = localStorage.getItem('credentials') ? JSON.parse(localStorage.getItem('credentials')) : {};
+let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : {},
+availableQuantity = localStorage.getItem('availableQuantity') ? JSON.parse(localStorage.getItem('availableQuantity')) : {},
+credentials = {},
+role = localStorage.getItem('credentials') ? JSON.parse(localStorage.getItem('credentials')) : {};
 
 function getInfo() {
 
@@ -165,7 +165,6 @@ let hash = function (s) {
 
 function add(name1) {
 
-
     if (availableQuantity[name1] <= 0) {
         // alert("quantity not available");
         // console.log("sdfa"); 
@@ -176,7 +175,7 @@ function add(name1) {
 
         return false;
     }
-
+ 
     let newCount = Number($('#' + name1).val()) + 1;
     $('#' + name1).val(newCount);
     if(newCount > 0){
@@ -189,7 +188,7 @@ function subtract(name1) {
     if (newCount < 0) return;
     $('#' + name1).val(newCount);
     if(newCount==0){
-        $('#' + name1+'1').attr('disabled',true);
+        $('#' + name1+'1').addClass('disabled');
     }
 }
 
@@ -199,8 +198,7 @@ function addToCart(name1) {
         $('#quantityToast').removeClass('d-none');
         $('.toast-body').html("Maximum quantity available is : " + availableQuantity[name1]);
         $('.toast').toast('show');
-        $('#max-snackbar').empty();
-        $('#max-snackbar').show(100, function () {
+        $('#max-snackbar').empty().show(100, function () {
             setTimeout(() => {
                 $('#max-snackbar').hide();
             }, 2000);
