@@ -1,9 +1,9 @@
 /*Global variable
 */
 let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : {},
-availableQuantity = localStorage.getItem('availableQuantity') ? JSON.parse(localStorage.getItem('availableQuantity')) : {},
-credentials = {},
-role = localStorage.getItem('credentials') ? JSON.parse(localStorage.getItem('credentials')) : {};
+    availableQuantity = localStorage.getItem('availableQuantity') ? JSON.parse(localStorage.getItem('availableQuantity')) : {},
+    credentials = {},
+    role = localStorage.getItem('credentials') ? JSON.parse(localStorage.getItem('credentials')) : {};
 
 function getInfo() {
 
@@ -27,11 +27,11 @@ function getInfo() {
         }
 
     });
-    $("#invalid-snackbar").show(100, function () {
+    $("#invalid-snackbar").empty().show(100, function () {
         setTimeout(() => {
             $('#invalid-snackbar').hide();
         }, 2000);
-    }).html("Wrong credentials.");
+    }).append("<i class='material-icons'>error</i>" + "Wrong Credentials");
     return false;
 }
 
@@ -113,7 +113,7 @@ function displayProductDetails(data) {
             '<label class="font-weight-bold"> Size:</label><span>' + data[i].size + '</span><br />' +
             '<label class="font-weight-bold"> Color:</label><span>' + data[i].color + '</span><br />' +
             '<label class="font-weight-bold"> MRP:</label><span>' + data[i].mrp + '</span>' +
-            '</div> <button type="button" id= "'+ data[i].name+'1'+'" class="add-cart disabled btn btn-info d-inline-flex mb-2" onclick="addToCart(\'' + data[i].name + '\')"><i class="material-icons">' +
+            '</div> <button type="button" id= "' + data[i].name + '1' + '" class="add-cart disabled btn btn-info d-inline-flex mb-2" onclick="addToCart(\'' + data[i].name + '\')"><i class="material-icons">' +
             'shopping_cart</i>Add to Cart</button> <div class="row"> <div class="col-2 ">' +
             '<button type="button" class="reduce-cart btn btn-info" onclick="subtract(\'' + data[i].name + '\')" data-toggle="tooltip"' +
             'title="Reduce Quantity">-</button></div><div class="col-6 mb-5">' +
@@ -170,16 +170,16 @@ function add(name1) {
         // console.log("sdfa"); 
         $('#quantityToast').removeClass('d-none');
 
-        $('.toast-body').html(" Quantity not available" );
+        $('.toast-body').html(" Quantity not available");
         $('.toast').toast('show');
 
         return false;
     }
- 
+
     let newCount = Number($('#' + name1).val()) + 1;
     $('#' + name1).val(newCount);
-    if(newCount > 0){
-        $('#'+name1 + '1').removeClass('disabled');
+    if (newCount > 0) {
+        $('#' + name1 + '1').removeClass('disabled');
     }
 }
 
@@ -187,8 +187,8 @@ function subtract(name1) {
     let newCount = Number($('#' + name1).val()) - 1;
     if (newCount < 0) return;
     $('#' + name1).val(newCount);
-    if(newCount==0){
-        $('#' + name1+'1').addClass('disabled');
+    if (newCount == 0) {
+        $('#' + name1 + '1').addClass('disabled');
     }
 }
 
@@ -202,7 +202,7 @@ function addToCart(name1) {
             setTimeout(() => {
                 $('#max-snackbar').hide();
             }, 2000);
-        }).append("<i class='material-icons'>error</i>"+ "Error");
+        }).append("<i class='material-icons'>error</i>" + "Error");
         return false;
     }
     if (cart[currUser]) {
@@ -215,12 +215,12 @@ function addToCart(name1) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    $('#'+name1).val(0);
+    $('#' + name1).val(0);
     total();
 }
 function total() {
     totalQty = 0;
-    products = localStorage.getItem('cart') ?JSON.parse(localStorage.getItem('cart')) : 0;
+    products = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : 0;
 
     user = Object.keys(role)[0];
 
@@ -247,11 +247,11 @@ function getSession() {
     }
     $("body").removeClass("d-none");
     if (window.location.hash) {
-        $('#login-snackbar').show(100, function () {
+        $('#login-snackbar').empty().show(100, function () {
             setTimeout(() => {
                 $('#login-snackbar').hide();
             }, 2000);
-        }).html("Login Successful : " + Object.keys(role)[0]);
+        }).append("<i class='material-icons'>done_outline</i> Login Successful : " + Object.keys(role)[0]);
         history.replaceState(null, null, ' ');
 
     }
@@ -271,6 +271,10 @@ function init() {
     if (window.location.pathname != "/index.html") {
         getSession();
     }
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 
     getProductDetails();
     total();

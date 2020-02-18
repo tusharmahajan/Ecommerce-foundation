@@ -34,8 +34,10 @@ function getInventory() {
   });
 
 }
-
-$('#log-out').click(function(){
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+$('#log-out').click(function () {
   localStorage.removeItem('credentials');
 });
 
